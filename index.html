@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mahaku 💘 Paglu</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #ffe6f0, #fceaff);
+      color: #4b0049;
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #c94fa7;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .navbar .logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: white;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #ffb6c1;
+    }
+
+    .home {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .welcome-text h1 {
+      font-size: 42px;
+      font-family: 'Great Vibes', cursive;
+      margin-bottom: 10px;
+    }
+
+    .welcome-text p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .cube-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .cube {
+      width: 120px;
+      height: 120px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spin 8s linear infinite;
+    }
+
+    .face {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 10px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(3px);
+      box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .front  { transform: translateZ(60px); background-image: url('https://pngfre.com/wp-content/uploads/anime-115-768x968.png'); }
+    .back   { transform: rotateY(180deg) translateZ(60px); background-image: url('https://pngfre.com/wp-content/uploads/anime-42-738x1024.png'); }
+    .top    { transform: rotateX(90deg) translateZ(60px); background-image: url('https://pngfre.com/wp-content/uploads/anime-77-723x1024.png'); }
+    .bottom { transform: rotateX(-90deg) translateZ(60px); background-image: url('https://pngfre.com/wp-content/uploads/anime-84-670x1024.png'); }
+    .left   { transform: rotateY(-90deg) translateZ(60px); background-image: url('https://pngfre.com/wp-content/uploads/anime-55-768x891.png'); }
+    .right  { transform: rotateY(90deg) translateZ(60px); background-image: url('https://pngfre.com/wp-content/uploads/anime-51-561x1024.png'); }
+
+    @keyframes spin {
+      0% { transform: rotateX(0) rotateY(0); }
+      100% { transform: rotateX(360deg) rotateY(360deg); }
+    }
+
+    .photo-frames {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .frame {
+      width: 200px;
+      height: 240px;
+      background-image: url('https://i.imgur.com/tGbaZCY.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .frame img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .gallery {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .gallery-slider {
+      overflow: hidden;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 20px;
+      animation: scrollGallery 40s linear infinite;
+    }
+
+    .gallery-track img {
+      border-radius: 15px;
+      width: 400px;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    @keyframes scrollGallery {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .letter {
+      padding: 60px 20px;
+      background-image: url('https://i.pinimg.com/1200x/3b/99/e7/3b99e7eaa8d090b8828a02f247217b7e.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #3a2f1d;
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .open-letter-btn {
+      margin: 20px auto;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      background: #ff8fab;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .open-letter-btn:hover {
+      background: #ff679b;
+    }
+
+    .letter-content {
+      max-width: 750px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 30px;
+      margin-top: 20px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 1.5s ease;
+    }
+
+    .letter-content.show {
+      opacity: 1;
+      max-height: 2000px;
+    }
+
+    .spotify-embed-glass {
+      padding: 60px 20px;
+      background: #ffeef8;
+      text-align: center;
+    }
+
+    .spotify-embed-glass h2 {
+      font-size: 2rem;
+      color: #d63384;
+      margin-bottom: 20px;
+    }
+
+    .spotify-glass {
+      max-width: 700px;
+      margin: auto;
+      padding: 15px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .secret {
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .secret h2 {
+      font-size: 2.2rem;
+      color: #b83280;
+      margin-bottom: 30px;
+    }
+
+    .moments {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .moment-card {
+      width: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff0f5;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .moment-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .moment-card p {
+      padding: 15px;
+      font-size: 1rem;
+      color: #555;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center center;
+      background-size: contain;
+      pointer-events: none;
+      animation: float 1s ease-out forwards;
+      z-index: 9999;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-50px) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    .night-mode {
+      background: #1a1a2e;
+      color: #fcd5ce;
+    }
+
+    .night-mode .navbar {
+      background: #2a2a3e;
+    }
+
+    .night-mode .playlist,
+    .night-mode .spotify-embed-glass,
+    .night-mode .secret,
+    .night-mode .gallery {
+      background-color: #22223b;
+      color: #fcd5ce;
+    }
+
+    .night-toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #d63384;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .locked-section {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">M💘P</div>
+  <ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#gallery">Gallery</a></li>
+  <li><a href="#playlist">Playlist</a></li>
+  <li><a href="#letter">Letter</a></li>
+ <li><a id="secretLink" href="secret.html" onclick="unlockSecret(event)">Secret</a></li>
+
+
+</ul>
+
+  </nav>
+
+  <section id="home" class="home">
+    <div class="welcome-text">
+      <h1>Welcome to Our Love World</h1>
+      <p>Built by Paglu for his Mahaku 💖</p>
+    </div>
+    <div class="cube-container">
+      <div class="cube">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+      </div>
+    </div>
+    <div class="photo-frames">
+      <div class="frame"><img src="https://source.unsplash.com/300x300/?couple,love" alt="Love Pic 1"></div>
+      <div class="frame"><img src="https://source.unsplash.com/301x301/?romance,couple" alt="Love Pic 2"></div>
+      <div class="frame"><img src="https://source.unsplash.com/302x302/?heart,holdinghands" alt="Love Pic 3"></div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <h2>Our Memories Together</h2>
+    <div class="gallery-slider">
+      <div class="gallery-track">
+        <img src="https://source.unsplash.com/400x300/?couple,1" />
+        <img src="https://source.unsplash.com/400x300/?couple,2" />
+        <img src="https://source.unsplash.com/400x300/?love,3" />
+        <img src="https://source.unsplash.com/400x300/?romantic,4" />
+        <img src="https://source.unsplash.com/400x300/?anniversary,5" />
+        <img src="https://source.unsplash.com/400x300/?gift,6" />
+        <img src="https://source.unsplash.com/400x300/?flowers,7" />
+        <img src="https://source.unsplash.com/400x300/?hearts,8" />
+        <img src="https://source.unsplash.com/400x300/?hug,9" />
+      </div>
+    </div>
+  </section>
+
+  <section class="spotify-embed-glass" id="playlist">
+    <h2>Spotify ❤️ Vibes</h2>
+    <div class="spotify-glass">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section class="letter" id="letter">
+    <h2>💌 From Your Paglu</h2>
+    <button onclick="toggleLetter()" class="open-letter-btn">💖 Tap to Read</button>
+    <div class="letter-content" id="letterBox">
+      <p>
+        Hi meri pagli MP ❤️,<br><br>
+        Pata hai… tu mere life ka sabse khubsurat hissa hai. Kabhi socha nahi tha ke ek din kisi se itna deeply jud jaunga.<br><br>
+        Tere saath har pal special lagta hai, chaahe vo late night talks ho, ya wo random memes tu bhejti hai 😁<br><br>
+        Har choti choti baat tu yaad rakhti hai… aur tu gussa hoti hai toh aur bhi zyada cute lagti hai 😝<br><br>
+        Ye letter likhte waqt sirf ek feeling hai — Gratitude! Thank you for being YOU.<br><br>
+        Tere bina sab adhoora lagta hai… aur tu ho toh sab kuch complete sa lage 🫩<br><br>
+        Tumhara Paglu 💘
+      </p>
+    </div>
+  </section>
+
+  <section id="secret" class="secret">
+    <h2>💘 Lovely Moments 💘</h2>
+    <div class="moments">
+      <div class="moment-card">
+        <img src="https://i.pinimg.com/1200x/2d/c6/7a/2dc67aab869626d9d2f5758d3732cfff.jpg" alt="Moment 1"/>
+        <p>Our first late night talk 🌛</p>
+      </div>
+      <div class="moment-card">
+        <img src="https://i.pinimg.com/1200x/8a/3e/c6/8a3ec6a05856a4dfad662e2c3bf92c24.jpg" alt="Moment 2"/>
+        <p>When you smiled through my joke 😄</p>
+      </div>
+      <div class="moment-card">
+        <img src="https://i.pinimg.com/1200x/aa/cf/7d/aacf7d34e82b56f9dd27ffd75cd0ccf0.jpg" alt="Moment 3"/>
+        <p>Stargazing and silly dreams ✨</p>
+      </div>
+    </div>
+  </section>
+    <!-- Secret Button for Unlock -->
+  <button onclick="unlockSecret()" class="night-toggle-btn" style="bottom: 60px;">🔒 Unlock Secret</button>
+  <!-- Hidden Secret Section -->
+  <section id="lockedMemory" class="secret locked-section">
+    <h2>💞 Your Secret Gift 💞</h2>
+    <div class="moments">
+      <div class="moment-card">
+        <img src="https://i.pinimg.com/1200x/fe/5d/47/fe5d47babe7941783953bba2b93c042a.jpg" alt="Moment Secret"/>
+        <p>A special moment just for you... 🎁</p>
+      </div>
+    </div>
+  </section>
+  <script>
+    function toggleLetter() {
+      const letterBox = document.getElementById("letterBox");
+      letterBox.classList.toggle("show");
+    }
+  
+    function toggleNightMode() {
+      document.body.classList.toggle('night-mode');
+    }
+  </script>
+
+  <!-- Secret Memory Lock Script -->
+ <script>
+  function unlockSecret(event) {
+    event.preventDefault(); // prevent default link action
+
+    const pass = prompt("Enter the password to access the secret page:");
+    if (pass === "mahaku") {
+      // Redirect to another page
+      window.location.href = "secret.html";
+    } else {
+      alert("Wrong password!");
+    }
+  }
+</script>
+
+
+  <!-- Heart Trail Cursor Script -->
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = `${e.pageX}px`;
+      heart.style.top = `${e.pageY}px`;
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1000);
+    });
+  </script>
+  </script>
+</body>
+</html>
