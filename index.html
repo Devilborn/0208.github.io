@@ -136,6 +136,13 @@
       object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .frame img:hover,
+    .moment-card img:hover,
+    .gallery-track img:hover {
+      transform: scale(1.05);
     }
 
     .gallery {
@@ -144,13 +151,16 @@
     }
 
     .gallery-slider {
-      overflow: hidden;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .gallery-track {
       display: flex;
       gap: 20px;
       animation: scrollGallery 40s linear infinite;
+      min-width: max-content;
+      flex-wrap: nowrap;
     }
 
     .gallery-track img {
@@ -158,6 +168,7 @@
       width: 400px;
       height: 300px;
       object-fit: cover;
+      transition: transform 0.3s ease;
     }
 
     @keyframes scrollGallery {
@@ -208,6 +219,11 @@
     .letter-content.show {
       opacity: 1;
       max-height: 2000px;
+    }
+
+    .letter-content p {
+      line-height: 1.6;
+      font-size: 1.05rem;
     }
 
     .spotify-embed-glass {
@@ -263,6 +279,7 @@
       width: 100%;
       height: 200px;
       object-fit: cover;
+      transition: transform 0.3s ease;
     }
 
     .moment-card p {
@@ -270,6 +287,7 @@
       font-size: 1rem;
       color: #555;
     }
+
     .heart {
       position: absolute;
       width: 20px;
@@ -327,6 +345,16 @@
       display: none;
     }
 
+    /* 🔧 Responsive Fixes */
+    @media (max-width: 768px) {
+      .cube { width: 80px; height: 80px; }
+      .face { width: 80px; height: 80px; }
+      .welcome-text h1 { font-size: 28px; }
+      .welcome-text p, .open-letter-btn { font-size: 16px; }
+      .gallery-track img { width: 280px; height: 200px; }
+      .moment-card { width: 90%; }
+      .frame img { width: 100px; height: 100px; }
+    }
   </style>
 </head>
 <body>
@@ -447,18 +475,17 @@
   </script>
 
   <!-- Secret Memory Lock Script -->
- <script>
-  function unlockSecret(event) {
-    event.preventDefault(); // prevent default link action
-
-    const pass = prompt("Enter the password to access the secret page:");
-    if (pass === "mahaku") {
-      // Redirect to another page
-      window.location.href = "secret.html";
-    } else {
-      alert("Wrong password!");
+<script>
+    function unlockSecret(event) {
+      event.preventDefault();
+      const pass = prompt("Enter the password to access the secret page:");
+      if (pass === "mahaku") {
+        window.location.href = "secret.html";
+      } else {
+        alert("Aww, not quite! 💭 Try the name you always call me?");
+      }
     }
-  }
+  </script>
 </script>
 
 
